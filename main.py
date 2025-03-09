@@ -18,12 +18,11 @@ page = st.sidebar.selectbox(
 if page == "Temen Gue":
     st.write("### Tambah Temen")
     name = st.text_input("Nama")
-    phone_number = st.text_input("Nomor HP", help="Format: 08xx-xxxx-xxxx")
 
     button = st.button("Tambah Temen")
 
     if button:
-        new_member = Person(name, phone_number)
+        new_member = Person(name)
         st.session_state.me.add_friend(new_member)
         st.rerun()
 
@@ -41,8 +40,8 @@ if page == "Temen Gue":
                     step=1000,
                 )
             )
-            lend = st.button("Aku minjemin", key=f"{friend.name}_lend")
-            borrow = st.button("Aku hutang", key=f"{friend.name}_borrow")
+            lend = st.button("Gue minjemin", key=f"{friend.name}_lend")
+            borrow = st.button("Gue hutang", key=f"{friend.name}_borrow")
 
             if lend:
                 transaction = Transaction(amount)
